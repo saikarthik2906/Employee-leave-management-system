@@ -51,10 +51,6 @@ function Login() {
                 role
             )
 
-            console.log(
-                localStorage.getItem("token")
-            )
-
             alert("Login successful")
 
             if (role === "EMPLOYEE") {
@@ -84,15 +80,21 @@ function Login() {
 
     return (
 
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-black">
 
-            <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+            <div className="bg-white dark:bg-gray-900 dark:text-white p-8 rounded-2xl shadow-xl w-full max-w-md">
 
-                <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">
+                <h2 className="text-4xl font-bold text-center mb-2 text-blue-600">
 
-                    Login
+                    Welcome Back
 
                 </h2>
+
+                <p className="text-center text-gray-500 dark:text-gray-300 mb-8">
+
+                    Employee Leave Management System
+
+                </p>
 
                 <form
                     onSubmit={handleSubmit}
@@ -102,26 +104,46 @@ function Login() {
                     <input
                         type="email"
                         name="email"
-                        placeholder="Email"
+                        placeholder="Enter Email"
                         onChange={handleChange}
-                        className="w-full border p-3 rounded-lg"
+                        className="w-full border p-3 rounded-lg text-black"
                     />
 
                     <input
                         type="password"
                         name="password"
-                        placeholder="Password"
+                        placeholder="Enter Password"
                         onChange={handleChange}
-                        className="w-full border p-3 rounded-lg"
+                        className="w-full border p-3 rounded-lg text-black"
                     />
 
                     <button
-                        className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700"
+                        className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
                     >
 
                         Login
 
                     </button>
+
+                    <div className="text-center mt-6">
+
+                        <p className="text-gray-600 dark:text-gray-300">
+
+                            Don't have an account?
+
+                        </p>
+
+                        <button
+                            type="button"
+                            onClick={() => navigate("/register")}
+                            className="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 mt-3 transition"
+                        >
+
+                            Register New User
+
+                        </button>
+
+                    </div>
 
                 </form>
 
