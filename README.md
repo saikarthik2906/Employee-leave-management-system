@@ -131,39 +131,15 @@ screenshots/
 
 ---
 
-# Apply Leave
-
-![Apply Leave](screenshots/apply-leave.png)
-
----
-
 # Manager Dashboard
 
 ![Manager Dashboard](screenshots/manager-dashboard.png)
 
 ---
 
-# Leave Approval Workflow
-
-![Leave Approval](screenshots/leave-approval.png)
-
----
-
 # Admin Dashboard
 
 ![Admin Dashboard](screenshots/admin-dashboard.png)
-
----
-
-# Analytics Dashboard
-
-![Analytics Dashboard](screenshots/analytics-dashboard.png)
-
----
-
-# Dark Mode UI
-
-![Dark Mode](screenshots/dark-mode.png)
 
 ---
 
