@@ -1,10 +1,12 @@
 package com.elms.backend.service.impl;
-import com.elms.backend.dto.response.DashboardResponse;
+
 import com.elms.backend.dto.request.ApplyLeaveRequest;
 import com.elms.backend.dto.request.LoginRequest;
 import com.elms.backend.dto.request.RegisterRequest;
 import com.elms.backend.dto.request.UpdateLeaveStatusRequest;
 import com.elms.backend.dto.response.ApiResponse;
+import com.elms.backend.dto.response.DashboardResponse;
+import com.elms.backend.dto.response.LoginResponse;
 import com.elms.backend.entity.Employee;
 import com.elms.backend.entity.Leave;
 import com.elms.backend.enums.LeaveStatus;
@@ -102,7 +104,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new ApiResponse(
                 true,
                 "Login successful",
-                token
+                new LoginResponse(
+                        token,
+                        employee.getRole().name()
+                )
         );
     }
 
@@ -297,33 +302,34 @@ public class EmployeeServiceImpl implements EmployeeService {
                 leave
         );
     }
+
     @Override
-public ApiResponse getDashboardData() {
+    public ApiResponse getDashboardData() {
 
-    DashboardResponse dashboard =
-            new DashboardResponse(
+        DashboardResponse dashboard =
+                new DashboardResponse(
 
-                    employeeRepository.count(),
+                        employeeRepository.count(),
 
-                    leaveRepository.count(),
+                        leaveRepository.count(),
 
-                    leaveRepository.countByStatus(
-                            LeaveStatus.APPROVED
-                    ),
+                        leaveRepository.countByStatus(
+                                LeaveStatus.APPROVED
+                        ),
 
-                    leaveRepository.countByStatus(
-                            LeaveStatus.REJECTED
-                    ),
+                        leaveRepository.countByStatus(
+                                LeaveStatus.REJECTED
+                        ),
 
-                    leaveRepository.countByStatus(
-                            LeaveStatus.PENDING
-                    )
-            );
+                        leaveRepository.countByStatus(
+                                LeaveStatus.PENDING
+                        )
+                );
 
-    return new ApiResponse(
-            true,
-            "Dashboard data fetched successfully",
-            dashboard
-    );
-}
+        return new ApiResponse(
+                true,
+                "Dashboard data fetched successfully",
+                dashboard
+        );
+    }
 }
